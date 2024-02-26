@@ -1,20 +1,37 @@
 import React from 'react';
-import {View,Text,ScrollView} from 'react-native';
-import data from './data.json'
+import {View,Text,SectionList} from 'react-native';
+
+const user = [
+  {
+    id:1,
+    name:"Roopam",
+    data:["Python","C++","java"]
+  },{
+    id:2,
+    name:"nidhi",
+    data:["Python","C++","java"]
+  },{
+    id:3,
+    name:"Nitin",
+    data:["Python","C++","java"]
+  },
+  {
+    id:4,
+    name:"Devensh",
+    data:["Python","C++","java"]
+  },
+]
 
 const App = () => {
   return (
-    <ScrollView>
-      {data.map((item,index)=>(
-        <View key={index} style={{backgroundColor:"green",marginBottom:3}}>
-          <Text style={{color:"red"}}>{item.name}</Text>
-          <Text>{item.email}</Text>
-          <Text>{item.phone}</Text>
-          <Text>{item.address}</Text>
-        </View>
-      ))}
-    </ScrollView>
+    <View>
+      {/* <Text>Roopam</Text> */}
+      <SectionList 
+      sections={user} 
+      renderItem={({item})=><Text>{item}</Text>}
+      renderSectionHeader={({section:{name}})=><Text style={{fontSize:20,color:"green"}}>{name}</Text>}/>
+    </View>
   )
 }
 
-export default App
+export default App;
