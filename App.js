@@ -1,14 +1,11 @@
-import { View, Text,StatusBar } from 'react-native'
+import { View, Text,Platform } from 'react-native'
 import React from 'react'
 
 const App = () => {
   return (
     <View>
-      <StatusBar 
-      backgroundColor="green"
-      barStyle="light-content"
-      hidden={false}
-      />
+      <Text>My Platform:{Platform.OS}</Text>
+      <Text>Version:{Platform.Version}</Text>
     </View>
   )
 }
