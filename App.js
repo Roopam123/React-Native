@@ -1,37 +1,54 @@
-import React from 'react';
-import {View,Text,SectionList} from 'react-native';
-
-const user = [
-  {
-    id:1,
-    name:"Roopam",
-    data:["Python","C++","java"]
-  },{
-    id:2,
-    name:"nidhi",
-    data:["Python","C++","java"]
-  },{
-    id:3,
-    name:"Nitin",
-    data:["Python","C++","java"]
-  },
-  {
-    id:4,
-    name:"Devensh",
-    data:["Python","C++","java"]
-  },
-]
+import { View, Text,Modal, TouchableHighlight,StyleSheet } from 'react-native'
+import React, { useState } from 'react'
 
 const App = () => {
+  const [modal,setModal] = useState(false)
   return (
-    <View>
-      {/* <Text>Roopam</Text> */}
-      <SectionList 
-      sections={user} 
-      renderItem={({item})=><Text>{item}</Text>}
-      renderSectionHeader={({section:{name}})=><Text style={{fontSize:20,color:"green"}}>{name}</Text>}/>
+    <View style={styles.main}>
+      {/* Modal basically take a three value 1.transparent={true} 2. visible={true} 3.  animationType='slide'*/}
+      <Modal transparent={true}
+            visible={modal}
+            animationType='slide'
+      >
+        <View style={styles.modal}>
+        <View>
+          <Text style={styles.modalText}>Hello! Roopam</Text>
+        </View>
+        </View>
+      </Modal>
+      <TouchableHighlight style={styles.btn} onPress={()=>setModal(false)}>
+        <Text style={styles.btnText}>Show Modal</Text>
+      </TouchableHighlight>
     </View>
   )
 }
 
-export default App;
+const styles = StyleSheet.create({
+  main:{
+    flex:1,
+    alignItems:"center",
+    justifyContent:"flex-end"
+  },
+  btn:{
+    backgroundColor:"black",
+    width:"90%",
+    marginBottom:20,
+    padding:15,
+    borderRadius:10
+  },
+  btnText:{
+    color:"white",
+    textAlign:"center",
+    fontWeight:"700",
+    fontSize:20
+  },
+  modal:{
+    display:"flex",
+    justifyContent:"center",
+    alignItems:"center",
+    backgroundColor:"gray",
+    flex:.9
+  }
+})
+
+export default App
