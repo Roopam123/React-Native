@@ -12,6 +12,8 @@ export class App extends Component {
         <Stack.Navigator>
           <Stack.Screen name='Login' component={Login} 
           options={{
+            header:()=><Text>Hello</Text>,
+            headerRight:()=><Button title='Right'/>,
             title:"Login Page",
             headerTintColor:"green",
             headerStyle:{
