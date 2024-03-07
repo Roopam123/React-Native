@@ -10,8 +10,15 @@ export class App extends Component {
     return (
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name='login' component={Login}/>
-          <Stack.Screen name='home' component={Home}/>
+          <Stack.Screen name='Login' component={Login} 
+          options={{
+            title:"Login Page",
+            headerTintColor:"green",
+            headerStyle:{
+              backgroundColor:"black"
+            }
+          }}/>
+          <Stack.Screen name='Home' component={Home}/>
         </Stack.Navigator>
       </NavigationContainer>
     )
@@ -21,15 +28,13 @@ export class App extends Component {
 const Home = ()=>{
   return (
     <View>
-      <Text>Home</Text>
     </View>
   )
 }
 const Login = (props)=>{
   return(
     <View>
-      <Text>Login</Text>
-      <Button title='go to home page' onPress={()=>{props.navigation.navigate("home")}}/>
+      <Button title='go to home page' onPress={()=>{props.navigation.navigate("Home")}}/>
     </View>
   )
 }
